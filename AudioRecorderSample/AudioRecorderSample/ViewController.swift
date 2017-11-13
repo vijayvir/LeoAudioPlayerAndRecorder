@@ -23,39 +23,46 @@ class ViewController: UIViewController  {
             
 		}
         
+        
 		leoAudioPlayerAndRecorder.closureDidPauseAudioRecording = { isPause in
 			print("🍩P🍩a🍩u🍩s🍩e")
 		}
+        
         
 		leoAudioPlayerAndRecorder.closureDidFinisedAudioRecording = { (isFinish  ,path )in
 			print("🍩isFinish🍩ed" , path ?? "NG")
 		}
         
+        
 		leoAudioPlayerAndRecorder.closureDidStartAudioRecording = { (isStart,path ) in
 			print("🍩isStart🍩ed" , path ?? "NG")
 		}
+        
 	}
     
     
 	@IBAction func actionStart(_ sender: UIButton) {
-        
 		leoAudioPlayerAndRecorder.startRecording({ second in
-            
-			self.lblTime.text = "\(second)"
-            
+        self.lblTime.text = "\(second)"
 		})
 	}
     
+    
 	@IBAction func actionPause(_ sender: UIButton) {
-        
 		leoAudioPlayerAndRecorder.pauseRecording()
-        
 	}
     
     
 	@IBAction func actionStop(_ sender: UIButton) {
         
-		leoAudioPlayerAndRecorder.finishRecording()
+    leoAudioPlayerAndRecorder.finishRecording()
         
 	}
+    @IBAction func actionAllRecoding(_ sender: UIButton) {
+      
+        let some = LeoAudioPlayerAndRecorder.getAllRecording()
+        
+        print(some)
+        
+    }
 }
