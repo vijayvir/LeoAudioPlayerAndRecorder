@@ -19,6 +19,7 @@ class ViewController: UIViewController  {
 
 		leoAudioPlayerAndRecorder.configure { ( isComplete ) in
        print(isComplete)
+            
 		}
 
 		leoAudioPlayerAndRecorder.closureDidPauseAudioRecording = { isPause in
